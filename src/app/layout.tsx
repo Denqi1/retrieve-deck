@@ -27,6 +27,7 @@ export default function RootLayout(props: LayoutProps<'/'>) {
   );
 }
 
+//
 // export default function RootLayout({ children }: LayoutProps<'/'>) {
 //   return (
 //     <html
