@@ -9,12 +9,17 @@ export const SectionCard = (props: SectionCardProps) => {
 
   return (
     <div
-      className={`bg-gray-950 p-4 rounded-2xl border border-gray-400 w-36 flex justify-between`}
+      className={`bg-[#0f1114] p-4 rounded-xl border border-[#23262b] w-36 flex justify-between cursor-pointer`}
       onClick={handleClick}
     >
       <p className={color}>{name}</p>
 
-      <input type="checkbox" onChange={handleClick} checked={isPicked} />
+      <input
+        className="cursor-pointer"
+        type="checkbox"
+        onChange={handleClick}
+        checked={isPicked}
+      />
     </div>
   );
 };
