@@ -56,6 +56,8 @@ export const useSectionStore = create<State & Actions>()((set) => ({
   },
 }));
 
+// TODO: Надо структуру choose-section зарефакторить, все эти компоненты вынести в соответствующие папки FSD.
+// И интерфейсы и стор тоже надо вынести от сюда.
 export default function Page() {
   return (
     <div className="flex flex-col gap-8">
