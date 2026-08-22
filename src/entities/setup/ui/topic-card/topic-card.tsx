@@ -1,4 +1,4 @@
-import { Card } from '@/shared/ui/card/card';
+import { Card } from '@/shared/ui/card';
 import { TopicCardProps } from './topic-card.types';
 
 export const TopicCard = (props: TopicCardProps) => {

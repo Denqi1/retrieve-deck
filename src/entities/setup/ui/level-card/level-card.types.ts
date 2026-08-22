@@ -1,4 +1,4 @@
-import { Level } from '../../model/useSetupStore/useSetupStore.types';
+import { Level } from '../../model/useSetupStore';
 
 export interface LevelCardProps {
   levelName: Level;

@@ -1,11 +1,5 @@
-import { LevelCard } from '../level-card/level-card';
-import { LevelCardModel } from './level-cards.types';
-
-const LEVELS: LevelCardModel[] = [
-  { name: 'junior', description: 'recall & syntax' },
-  { name: 'middle', description: 'how & why' },
-  { name: 'senior', description: 'trade-offs & internals' },
-];
+import { LEVELS } from '../../config/level';
+import { LevelCard } from '../level-card';
 
 export const LevelCards = () => {
   return (

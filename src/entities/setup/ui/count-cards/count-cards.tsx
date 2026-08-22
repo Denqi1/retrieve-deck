@@ -1,6 +1,5 @@
+import { PRESET_COUNT_QUESTION_CARDS } from '../../config/count';
 import { CountCard } from '../count-card';
-
-const PRESET_COUNT_QUESTION_CARDS = [8, 16, 24, 32];
 
 export const CountCards = () => {
   return (

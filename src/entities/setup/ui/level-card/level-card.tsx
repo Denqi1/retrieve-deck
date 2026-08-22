@@ -1,7 +1,7 @@
 'use client';
 
-import { Card } from '@/shared/ui/card/card';
-import { useSetupStore } from '../../model/useSetupStore/useSetupStore';
+import { Card } from '@/shared/ui/card';
+import { useSetupStore } from '../../model/useSetupStore';
 import { LevelCardProps } from './level-card.types';
 
 export const LevelCard = (props: LevelCardProps) => {

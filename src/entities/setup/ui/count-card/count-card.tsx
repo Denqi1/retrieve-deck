@@ -1,7 +1,7 @@
 'use client';
 
-import { Card } from '@/shared/ui/card/card';
-import { useSetupStore } from '../../model/useSetupStore/useSetupStore';
+import { Card } from '@/shared/ui/card';
+import { useSetupStore } from '../../model/useSetupStore';
 import { CountCardProps } from './count-card.types';
 
 export const CountCard = (props: CountCardProps) => {
