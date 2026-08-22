@@ -1,13 +1,14 @@
 'use client';
 
-import { useSectionStore } from '../../page';
+import { Card } from '@/shared/ui/card/card';
+import { useSetupStore } from '../../model/useSetupStore/useSetupStore';
 import { LevelCardProps } from './level-card.types';
 
 export const LevelCard = (props: LevelCardProps) => {
   const { levelDescription, levelName } = props;
 
-  const pickedLevel = useSectionStore((state) => state.level);
-  const setLevel = useSectionStore((state) => state.setLevel);
+  const pickedLevel = useSetupStore((state) => state.level);
+  const setLevel = useSetupStore((state) => state.setLevel);
 
   const handleClick = () => {
     setLevel(levelName);
@@ -17,12 +18,16 @@ export const LevelCard = (props: LevelCardProps) => {
    * TODO: Над дазиайном карточки ещё стоит поработать
    */
   return (
-    <div
-      className={`bg-[#0f1114] p-4 rounded-xl border cursor-pointer ${pickedLevel === levelName ? 'border-[#7ee787] text-[#7ee787]' : 'border-[#23262b] text-[#8b909b]'}  `}
+    <Card
+      className={
+        pickedLevel === levelName
+          ? 'border-[#7ee787] text-[#7ee787]'
+          : 'border-[#23262b] text-[#8b909b]'
+      }
       onClick={handleClick}
     >
       <p>{levelName}</p>
       <p>{levelDescription}</p>
-    </div>
+    </Card>
   );
 };

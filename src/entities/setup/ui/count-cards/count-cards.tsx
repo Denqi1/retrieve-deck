@@ -1,4 +1,4 @@
-import { CountCard } from '../count-card/count-card';
+import { CountCard } from '../count-card';
 
 const PRESET_COUNT_QUESTION_CARDS = [8, 16, 24, 32];
 

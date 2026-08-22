@@ -1,12 +1,7 @@
-import { Level } from '../../page';
 import { LevelCard } from '../level-card/level-card';
+import { LevelCardModel } from './level-cards.types';
 
-interface LevelCard {
-  name: Level;
-  description: string;
-}
-
-const LEVELS: LevelCard[] = [
+const LEVELS: LevelCardModel[] = [
   { name: 'junior', description: 'recall & syntax' },
   { name: 'middle', description: 'how & why' },
   { name: 'senior', description: 'trade-offs & internals' },
