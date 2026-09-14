@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { LevelCards, TopicCards, CountCards } from '@/entities/setup';
+import { SetupBlocks, SetupButton } from '@/features/setup-quiz-config';
 
 export default function Page() {
   return (
@@ -14,24 +13,11 @@ export default function Page() {
         </p>
       </div>
 
-      <div>
-        <p className="text-xs text-[#565b64]">TOPICS:</p>
-        <TopicCards />
-      </div>
-
-      <div>
-        <p className="text-xs text-[#565b64]">COUNT:</p>
-        <CountCards />
-      </div>
-
-      <div>
-        <p className="text-xs text-[#565b64]">LEVEL:</p>
-        <LevelCards />
-      </div>
+      <SetupBlocks />
 
       {/* Это нужно будет поместить в футер думаю, где будет показано что в итоге пользователь выбрал и рядышком кнопка run */}
       {/* Собственно кнопка run откроет "новую страницу" и там уже будет карточка-вопрос по теме */}
-      <Link href={'/setup/session'}>RUN</Link>
+      <SetupButton />
     </div>
   );
 }
