@@ -1,17 +1,7 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import { PathTracker } from '@/features/path-tracker';
+import { inter } from '@/shared/ui/fonts/fonts';
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   title: 'Retrieve Deck',
@@ -23,15 +13,14 @@ export default function RootLayout(props: LayoutProps<'/'>) {
   const { children } = props;
 
   return (
-    <html
-      lang="en"
-      // TODO: Вынести цвета в тему
-      // @see DEV-69
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased bg-[#0a0b0d] bg-custom-gradient`}
-    >
-      <body>
-        <main className="container mx-auto my-4 ">
-          <div className="max-w-4xl bg-[#131519] rounded-2xl border border-[#23262b]">
+    <html lang="en">
+      <body
+        // TODO: Вынести цвета в тему
+        // @see DEV-69
+        className={`${inter.className} antialiased bg-[#0a0b0d] bg-custom-gradient`}
+      >
+        <main className="container mx-auto flex justify-center items-center py-6">
+          <div className="w-3xl bg-[#131519] rounded-2xl border border-[#23262b] mx-auto">
             <div className="flex items-center gap-2.5 px-3.5 py-4 bg-[#0e1013] border-b-[#23262b] border-b rounded-t-2xl">
               <div className="w-2.5 h-2.5 rounded-full bg-[#e85d5d]"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-[#e8b04f]"></div>

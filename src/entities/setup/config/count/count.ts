@@ -1,1 +1,0 @@
-export const PRESET_COUNT_QUESTION_CARDS = [8, 16, 24, 32];
