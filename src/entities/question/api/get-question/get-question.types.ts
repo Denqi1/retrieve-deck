@@ -8,5 +8,5 @@ export interface Question {
 export interface GetQuestionOptions {
   topic: string;
   level: string;
-  listPreviousQuestions: Question[];
+  listPreviousTopics: string[];
 }

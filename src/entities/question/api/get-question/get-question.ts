@@ -7,7 +7,7 @@ const fetchQuestion = async () => {
 };
 
 export const getQuestion = async (options: GetQuestionOptions) => {
-  const { level, topic, listPreviousQuestions } = options;
+  const { level, topic, listPreviousTopics } = options;
 
   try {
     const res = await fetch('http://localhost:11434/api/chat', {
@@ -26,7 +26,7 @@ export const getQuestion = async (options: GetQuestionOptions) => {
           },
           {
             role: 'system',
-            content: `listPreviousQuestions: ${listPreviousQuestions}`,
+            content: `listPreviousTopics: ${JSON.stringify(listPreviousTopics)}`,
           },
           {
             role: 'user',

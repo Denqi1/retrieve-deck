@@ -6,18 +6,28 @@ import { Question } from '../../api/get-question/get-question.types';
 import { getQuestion } from '../../api/get-question/get-question';
 import { useSetupStore } from '@/features/setup-quiz-config/model/use-setup-store';
 import { useRouter } from 'next/navigation';
+import { Count } from '@/features/setup-quiz-config/ui/count-cards/count-card/count-card.types';
+import { Level } from '@/features/setup-quiz-config/config/level';
+import { TopicName } from '@/features/setup-quiz-config/config/topic/topic.types';
 
-export const SessionForm = ({ question }: { question: Question }) => {
-  const [currentQuestion, setCurrentQuestion] = useState<Question | null>(
-    question,
-  );
+export const SessionForm = ({
+  question,
+  count,
+  level,
+  topic,
+}: {
+  question: Question;
+  count: Count;
+  level: Level;
+  topic: TopicName;
+}) => {
+  const [currentQuestion, setCurrentQuestion] = useState<Question>(question);
+  const [isLoadingQuestion, setIsLoadingQuestion] = useState(false);
   const [numberQuestion, setNumberQuestion] = useState(1);
+  const [listPreviousTopics, setListPreviousTopics] = useState<string[]>([]);
+  const [answer, setAnswer] = useState('');
 
-  const answer = useSetupStore((state) => state.answer);
-  const setAnswer = useSetupStore((state) => state.setAnswer);
   const addAnswer = useSetupStore((state) => state.addAnswer);
-  const countQuestions = useSetupStore((state) => state.countCards);
-  const addQuestion = useSetupStore((state) => state.addQuestion);
 
   const router = useRouter();
 
@@ -26,46 +36,42 @@ export const SessionForm = ({ question }: { question: Question }) => {
   };
 
   const handleSubmit = async () => {
-    addAnswer({ text: answer, questionId: currentQuestion?.id ?? '' });
+    addAnswer({ text: answer, questionId: currentQuestion.id });
     setAnswer('');
-    setCurrentQuestion(null);
+    setListPreviousTopics((prev) => [...prev, currentQuestion.topic]);
 
-    if (numberQuestion >= countQuestions) {
-      // Не понимаю как добавить к текущему URL новый сегмент
-      router.push('/result');
+    if (numberQuestion >= count) {
+      router.push('/setup/session/result');
 
       return;
     }
 
     setNumberQuestion((prev) => prev + 1);
+    setIsLoadingQuestion(true);
 
     const dataQuestion = await getQuestion({
-      topic: 'javascript',
-      level: 'junior',
-      // Подумать над этим. Надо ли это. Поскольку сейчас я не понимаю как вообще это передать сюда.
-      listPreviousQuestions: [],
+      topic,
+      level,
+      listPreviousTopics: [...listPreviousTopics, currentQuestion.topic],
     });
+
+    setIsLoadingQuestion(false);
 
     if (!dataQuestion) {
       console.error('NO DATA QUESTION!');
       return;
     }
 
-    addQuestion(dataQuestion);
     setCurrentQuestion(dataQuestion);
   };
 
   return (
     <div className="flex flex-col gap-8">
       <h1>
-        Количество вопросов - {countQuestions}, текущий - {numberQuestion}
+        Количество вопросов - {count}, текущий - {numberQuestion}
       </h1>
 
-      {currentQuestion && currentQuestion.text ? (
-        <p>{currentQuestion?.text}</p>
-      ) : (
-        <p>Loading...</p>
-      )}
+      {isLoadingQuestion ? <p>Loading...</p> : <p>{currentQuestion.text}</p>}
 
       <div className="border border-amber-50">
         <label htmlFor="answer">Your Answer:</label>
@@ -81,11 +87,11 @@ export const SessionForm = ({ question }: { question: Question }) => {
       </div>
 
       <button
-        disabled={!currentQuestion}
+        disabled={isLoadingQuestion}
         onClick={handleSubmit}
         className="cursor-pointer bg-gray-900"
       >
-        {numberQuestion < countQuestions ? 'Submit' : 'Finish'}
+        {numberQuestion < count ? 'Submit' : 'Finish'}
       </button>
     </div>
   );

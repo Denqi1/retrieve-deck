@@ -1,21 +1,24 @@
 'use client';
 
 import { Topic, TOPICS } from '../../config/topic';
-import { useSetupStore } from '../../model/use-setup-store';
+
 import { TopicCard } from './topic-card';
 
-export const TopicCards = () => {
-  const pickedTopic = useSetupStore((state) => state.topic);
-  const setTopic = useSetupStore((state) => state.setTopic);
-
-  const handleClick = (topic: Topic) => {
-    setTopic(topic);
-  };
-
+export const TopicCards = ({
+  onClick,
+  pickedTopic,
+}: {
+  onClick: (topic: Topic) => void;
+  pickedTopic: Topic;
+}) => {
   return (
     <div className="grid grid-cols-3 gap-3">
       {TOPICS.map((topic) => {
         const { id, name } = topic;
+
+        const handleClick = () => {
+          onClick(topic);
+        };
 
         return (
           <TopicCard

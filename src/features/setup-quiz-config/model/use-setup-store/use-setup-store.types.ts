@@ -2,7 +2,7 @@ import { Question } from '@/entities/question/api/get-question/get-question.type
 import { Topic } from '../../config/topic';
 import { Level } from '../../config/level';
 
-interface Answer {
+export interface Answer {
   text: string;
   questionId: string;
 }

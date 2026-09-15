@@ -1,18 +1,11 @@
 'use client';
 
 import { Card } from '@/shared/ui/card';
-import { useSetupStore } from '../../../model/use-setup-store';
+
 import { LevelCardProps } from './level-card.types';
 
 export const LevelCard = (props: LevelCardProps) => {
-  const { levelDescription, levelName } = props;
-
-  const pickedLevel = useSetupStore((state) => state.level);
-  const setLevel = useSetupStore((state) => state.setLevel);
-
-  const handleClick = () => {
-    setLevel(levelName);
-  };
+  const { levelDescription, levelName, isPicked, onClick } = props;
 
   /**
    * TODO: Над дазиайном карточки ещё стоит поработать
@@ -20,11 +13,11 @@ export const LevelCard = (props: LevelCardProps) => {
   return (
     <Card
       className={
-        pickedLevel === levelName
+        isPicked
           ? 'border-[#7ee787] text-[#7ee787]'
           : 'border-[#23262b] text-[#8b909b]'
       }
-      onClick={handleClick}
+      onClick={onClick}
     >
       <p>{levelName}</p>
       <p>{levelDescription}</p>

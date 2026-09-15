@@ -1,4 +1,4 @@
-import { SetupBlocks, SetupButton } from '@/features/setup-quiz-config';
+import { SetupForm } from '@/features/setup-quiz-config/ui/setup-form/setup-form';
 
 export default function Page() {
   return (
@@ -13,11 +13,7 @@ export default function Page() {
         </p>
       </div>
 
-      <SetupBlocks />
-
-      {/* Это нужно будет поместить в футер думаю, где будет показано что в итоге пользователь выбрал и рядышком кнопка run */}
-      {/* Собственно кнопка run откроет "новую страницу" и там уже будет карточка-вопрос по теме */}
-      <SetupButton />
+      <SetupForm />
     </div>
   );
 }
