@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 
-import { SetupButton } from '../setup-button';
 import { TopicCards } from '../topic-cards';
 import { CountCards } from '../count-cards';
 import { LevelCards } from '../level-cards';
@@ -10,6 +9,8 @@ import { Topic } from '../../config/topic/topic.types';
 import { Count } from '../count-cards/count-card/count-card.types';
 import { Level } from '../../config/level';
 import { TOPICS } from '../../config/topic';
+import Link from 'next/link';
+import { preloadQuestion } from '@/entities/question/api/get-question/get-question';
 
 export const SetupForm = () => {
   const [topic, setTopic] = useState<Topic>(TOPICS[0]);
@@ -26,6 +27,14 @@ export const SetupForm = () => {
 
   const handleLevelChoose = (level: Level) => {
     setLevel(level);
+  };
+
+  const handleSessionRun = () => {
+    preloadQuestion({
+      level,
+      topic: topic.name,
+      listPreviousTopics: [],
+    });
   };
 
   return (
@@ -47,7 +56,15 @@ export const SetupForm = () => {
         </li>
       </ul>
 
-      <SetupButton count={count} level={level} topic={topic.name} />
+      <Link
+        href={{
+          pathname: '/setup/session',
+          query: { level, topic: topic.name, count },
+        }}
+        onClick={handleSessionRun}
+      >
+        RUN
+      </Link>
     </div>
   );
 };

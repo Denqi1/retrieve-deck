@@ -4,11 +4,12 @@ import { ChangeEvent, useState } from 'react';
 
 import { Question } from '../../api/get-question/get-question.types';
 import { getQuestion } from '../../api/get-question/get-question';
-import { useSetupStore } from '@/features/setup-quiz-config/model/use-setup-store';
+
 import { useRouter } from 'next/navigation';
 import { Count } from '@/features/setup-quiz-config/ui/count-cards/count-card/count-card.types';
 import { Level } from '@/features/setup-quiz-config/config/level';
 import { TopicName } from '@/features/setup-quiz-config/config/topic/topic.types';
+import { useSessionStore } from '../../model/use-session-store/use-session-store';
 
 export const SessionForm = ({
   question,
@@ -27,7 +28,7 @@ export const SessionForm = ({
   const [listPreviousTopics, setListPreviousTopics] = useState<string[]>([]);
   const [answer, setAnswer] = useState('');
 
-  const addAnswer = useSetupStore((state) => state.addAnswer);
+  const addAnswer = useSessionStore((state) => state.addAnswer);
 
   const router = useRouter();
 
