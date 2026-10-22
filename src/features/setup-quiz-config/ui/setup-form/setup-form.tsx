@@ -10,7 +10,6 @@ import { Count } from '../count-cards/count-card/count-card.types';
 import { Level } from '../../config/level';
 import { TOPICS } from '../../config/topic';
 import Link from 'next/link';
-import { preloadQuestion } from '@/entities/question/api/get-question/get-question';
 
 export const SetupForm = () => {
   const [topic, setTopic] = useState<Topic>(TOPICS[0]);
@@ -30,11 +29,11 @@ export const SetupForm = () => {
   };
 
   const handleSessionRun = () => {
-    preloadQuestion({
-      level,
-      topic: topic.name,
-      listPreviousTopics: [],
-    });
+    // preloadQuestion({
+    //   level,
+    //   topic: topic.name,
+    //   listPreviousTopics: [],
+    // });
   };
 
   return (

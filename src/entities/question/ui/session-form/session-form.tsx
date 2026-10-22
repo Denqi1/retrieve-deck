@@ -3,7 +3,6 @@
 import { ChangeEvent, useState } from 'react';
 
 import { Question } from '../../api/get-question/get-question.types';
-import { getQuestion } from '../../api/get-question/get-question';
 
 import { useRouter } from 'next/navigation';
 import { Count } from '@/features/setup-quiz-config/ui/count-cards/count-card/count-card.types';
@@ -48,22 +47,6 @@ export const SessionForm = ({
     }
 
     setNumberQuestion((prev) => prev + 1);
-    setIsLoadingQuestion(true);
-
-    const dataQuestion = await getQuestion({
-      topic,
-      level,
-      listPreviousTopics: [...listPreviousTopics, currentQuestion.topic],
-    });
-
-    setIsLoadingQuestion(false);
-
-    if (!dataQuestion) {
-      console.error('NO DATA QUESTION!');
-      return;
-    }
-
-    setCurrentQuestion(dataQuestion);
   };
 
   return (
