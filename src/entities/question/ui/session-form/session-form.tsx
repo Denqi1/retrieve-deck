@@ -41,7 +41,8 @@ export const SessionForm = ({
     setAnswer('');
     setListPreviousTopics((prev) => [...prev, currentQuestion.topic]);
 
-    if (numberQuestion >= count) {
+    // if (numberQuestion >= count) {
+    if (numberQuestion >= 1) {
       router.push('/setup/session/result');
 
       return;
