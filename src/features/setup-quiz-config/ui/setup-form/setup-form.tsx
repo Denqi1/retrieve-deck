@@ -28,14 +28,6 @@ export const SetupForm = () => {
     setLevel(level);
   };
 
-  const handleSessionRun = () => {
-    // preloadQuestion({
-    //   level,
-    //   topic: topic.name,
-    //   listPreviousTopics: [],
-    // });
-  };
-
   return (
     <div>
       <ul className="flex flex-col gap-4">
@@ -60,7 +52,6 @@ export const SetupForm = () => {
           pathname: '/setup/session',
           query: { level, topic: topic.name, count },
         }}
-        onClick={handleSessionRun}
       >
         RUN
       </Link>

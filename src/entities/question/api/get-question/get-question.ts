@@ -1,6 +1,6 @@
 import Groq from 'groq-sdk';
-import { GENERATION_QUESTION_SYSTEM_PROMPT } from '../../config/question-prompt';
 import { GetQuestionOptions, Question } from './get-question.types';
+import { buildGenerationPrompt } from '../../config/question-prompt';
 
 const { LLM_API_KEY, LLM_MODEL } = process.env;
 
@@ -8,28 +8,32 @@ const groq = new Groq({
   apiKey: LLM_API_KEY,
 });
 
-export const getQuestion = async (options: GetQuestionOptions) => {
-  const { level, topic, listPreviousTopics } = options;
+export const getQuestions = async (options: GetQuestionOptions) => {
+  const { level, topic, previousTopics, count } = options;
 
   try {
     const completion = await groq.chat.completions.create({
       model: LLM_MODEL,
       messages: [
-        { role: 'system', content: GENERATION_QUESTION_SYSTEM_PROMPT },
         {
           role: 'system',
-          content: `listPreviousTopics: ${JSON.stringify(listPreviousTopics)}`,
+          content: buildGenerationPrompt({
+            count,
+            level,
+            previousTopics,
+            topic,
+          }),
         },
-        { role: 'user', content: `topic: ${topic}\nlevel: ${level}\n` },
+        { role: 'user', content: `Сгенерируй вопросы.` },
       ],
       response_format: { type: 'json_object' },
-      reasoning_effort: 'low',
+      reasoning_effort: 'medium',
     });
 
     const text = completion.choices[0].message.content;
     if (!text) return undefined;
 
-    const dataParsed: Question = JSON.parse(text);
+    const dataParsed: Question[] = JSON.parse(text);
     return dataParsed;
   } catch (error) {
     if (error instanceof Groq.APIError) {
