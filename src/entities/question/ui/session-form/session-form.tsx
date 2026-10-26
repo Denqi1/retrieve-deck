@@ -2,7 +2,7 @@
 
 import { ChangeEvent, useState } from 'react';
 
-import { Question } from '../../api/get-question/get-question.types';
+// import { Question } from '../../api/get-question/get-question.types';
 
 import { useRouter } from 'next/navigation';
 
