@@ -10,7 +10,6 @@ import { Count } from '../count-cards/count-card/count-card.types';
 import { Level } from '../../config/level';
 import { TOPICS } from '../../config/topic';
 import Link from 'next/link';
-import { preloadQuestion } from '@/entities/question/api/get-question/get-question';
 
 export const SetupForm = () => {
   const [topic, setTopic] = useState<Topic>(TOPICS[0]);
@@ -27,14 +26,6 @@ export const SetupForm = () => {
 
   const handleLevelChoose = (level: Level) => {
     setLevel(level);
-  };
-
-  const handleSessionRun = () => {
-    preloadQuestion({
-      level,
-      topic: topic.name,
-      listPreviousTopics: [],
-    });
   };
 
   return (
@@ -61,7 +52,6 @@ export const SetupForm = () => {
           pathname: '/setup/session',
           query: { level, topic: topic.name, count },
         }}
-        onClick={handleSessionRun}
       >
         RUN
       </Link>
