@@ -35,7 +35,11 @@ export const SessionForm = (props: SessionFormProps) => {
     const newIndex = indexQuestion + 1;
     setIndexQuestion(newIndex);
 
-    if (newIndex >= questions.length) {
+    /**
+     * TODO: Убрать, когда будет готова страница result
+     */
+    // if (newIndex >= questions.length) {
+    if (numberQuestion >= 1) {
       router.push('/setup/session/result');
     }
   };
