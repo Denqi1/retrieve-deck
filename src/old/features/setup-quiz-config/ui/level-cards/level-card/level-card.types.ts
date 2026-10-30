@@ -1,4 +1,4 @@
-import { Level } from '@/features/setup-quiz-config/config/level';
+import { Level } from '@/old/features/setup-quiz-config/config/level';
 
 export interface LevelCardProps {
   levelName: Level;

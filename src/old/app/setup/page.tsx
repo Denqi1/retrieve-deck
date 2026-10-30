@@ -1,4 +1,4 @@
-import { SetupForm } from '@/features/setup-quiz-config/ui/setup-form/setup-form';
+import { SetupForm } from '@/old/features/setup-quiz-config/ui/setup-form/setup-form';
 
 export default function Page() {
   return (

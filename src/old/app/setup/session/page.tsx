@@ -1,4 +1,4 @@
-import { SessionForm } from '@/entities/question/ui/session-form/session-form';
+import { SessionForm } from '@/old/entities/question/ui/session-form/session-form';
 import { nanoid } from 'nanoid';
 import { SessionPageProps } from './page.types';
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { Card } from '@/shared/ui/card';
+import { Card } from '@/old/ui/card';
 
 import { LevelCardProps } from './level-card.types';
 

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { PathTracker } from '@/features/path-tracker';
-import { inter } from '@/shared/ui/fonts/fonts';
-import './globals.css';
+// import { PathTracker } from '@/old/features/path-tracker';
+import { inter } from '@/old/ui/fonts/fonts';
+import './main.css';
 
 export const metadata: Metadata = {
   title: 'Retrieve Deck',
@@ -25,7 +25,7 @@ export default function RootLayout(props: LayoutProps<'/'>) {
               <div className="w-2.5 h-2.5 rounded-full bg-[#e85d5d]"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-[#e8b04f]"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-[#7ee787]"></div>
-              <PathTracker />
+              {/* <PathTracker /> */}
             </div>
             <div className="p-8">{children}</div>
           </div>
