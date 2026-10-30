@@ -19,7 +19,7 @@ export default function RootLayout(props: LayoutProps<'/'>) {
         // @see DEV-69
         className={`${inter.className} antialiased bg-[#0a0b0d] bg-custom-gradient`}
       >
-        <main className="container mx-auto flex justify-center items-center py-6">
+        <main className="container mx-auto my-auto flex justify-center items-center py-6">
           <div className="w-3xl bg-[#131519] rounded-2xl border border-[#23262b] mx-auto">
             <div className="flex items-center gap-2.5 px-3.5 py-4 bg-[#0e1013] border-b-[#23262b] border-b rounded-t-2xl">
               <div className="w-2.5 h-2.5 rounded-full bg-[#e85d5d]"></div>
