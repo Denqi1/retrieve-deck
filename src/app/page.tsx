@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { lusitana } from '@/old/ui/fonts/fonts';
 import Image from 'next/image';
+import { Button } from '@/shared/ui/button';
 
 export default function Page() {
   return (
@@ -73,6 +74,8 @@ export default function Page() {
           </div>
         </div>
       </div>
+
+      <Button text="Start session" className="self-start" />
     </div>
   );
 }
