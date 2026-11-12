@@ -3,4 +3,7 @@ export interface ButtonProps {
   onClick?: () => void;
   isDisabled?: boolean;
   className?: string;
+  isLoading?: boolean;
+  size?: 'lg' | 'md' | 'sm' | 'xs';
+  variant?: 'primary' | 'text';
 }
