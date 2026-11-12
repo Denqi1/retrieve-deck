@@ -14,14 +14,10 @@ export default function RootLayout(props: LayoutProps<'/'>) {
 
   return (
     <html lang="en">
-      <body
-        // TODO: Вынести цвета в тему
-        // @see DEV-69
-        className={`${inter.className} antialiased bg-[#0a0b0d] bg-custom-gradient`}
-      >
+      <body className={`${inter.className} antialiased`}>
         <main className="container mx-auto my-auto flex justify-center items-center py-6">
-          <div className="w-3xl bg-[#131519] rounded-2xl border border-[#23262b] mx-auto">
-            <div className="flex items-center gap-2.5 px-3.5 py-4 bg-[#0e1013] border-b-[#23262b] border-b rounded-t-2xl">
+          <div className="w-3xl bg-surface-main rounded-2xl border border-default mx-auto">
+            <div className="flex items-center gap-2.5 px-3.5 py-4 bg-surface-main border-default border-b rounded-t-2xl">
               <div className="w-2.5 h-2.5 rounded-full bg-[#e85d5d]"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-[#e8b04f]"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-[#7ee787]"></div>

@@ -1,55 +1,47 @@
 @import 'tailwindcss';
 
-@theme {
-  /* Base tokens */
-  --color-blackberry-cream: #47254d;
-  --color-vintage-grape: #49324d;
-  --color-orchid-mist: #cb75d9;
-  --color-coffee-bean: #0e030f;
-  --color-shadow-grey: #322933;
-  --color-midnight-violet: #271829;
-  --color-midnight-violet-deep: #221524;
-  --color-dark-amethyst: #4a0554;
-  --color-vintage-lavender: #956b9c;
-  --color-amethyst-smoke: #9f76a6;
-  --color-crystal-white: #ffffff;
-  --color-lavender-ice: #f7f2f8;
-  --color-orchid-glow: #eaddf0;
-
-  /* Semantic tokens */
-  /* Surfaces / BG */
-  --color-ui-bg-main: var(--color-coffee-bean);
-  --color-ui-bg-surface: var(--color-midnight-violet-deep);
-  --color-ui-bg-panel: var(--color-midnight-violet);
-  --color-ui-bg-element: var(--color-vintage-grape);
-
-  /* Typography / Icons */
-  --color-ui-text-primary: var(--color-crystal-white);
-  --color-ui-text-secondary: var(--color-orchid-glow);
-  --color-ui-text-muted: var(--color-amethyst-smoke);
-  --color-ui-text-disabled: var(--color-shadow-grey);
-
-  /* Borders / Dividers */
-  --color-ui-border-default: var(--color-blackberry-cream);
-  --color-ui-border-muted: var(--color-shadow-grey);
-
-  /* CTA / Actions */
-  --color-cta-bg: var(--color-orchid-mist);
-  --color-cta-bg-hover: var(--color-dark-amethyst);
-  --color-cta-text: var(--color-coffee-bean);
-
-  /* Secondary interactive elements */
-  --color-cta-secondary-bg: var(--color-vintage-grape);
-  --color-cta-secondary-hover: var(--color-blackberry-cream);
-  --color-cta-secondary-text: var(--color-lavender-ice);
+:root {
+  --palette-blackberry-cream: #47254d;
+  --palette-vintage-grape: #49324d;
+  --palette-orchid-mist: #cb75d9;
+  --palette-coffee-bean: #0e030f;
+  --palette-shadow-grey: #322933;
+  --palette-midnight-violet: #271829;
+  --palette-midnight-violet-deep: #221524;
+  --palette-dark-amethyst: #4a0554;
+  --palette-amethyst-smoke: #9f76a6;
+  --palette-crystal-white: #ffffff;
+  --palette-lavender-ice: #f7f2f8;
+  --palette-orchid-glow: #eaddf0;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100dvh;
+@theme inline {
+  --color-surface-main: var(--palette-coffee-bean);
+  --color-surface-card: var(--palette-midnight-violet-deep);
+  --color-surface-panel: var(--palette-midnight-violet);
+  --color-surface-element: var(--palette-vintage-grape);
 
-  background: var(--color-ui-bg-main);
-  color: var(--color-ui-text-secondary);
+  --text-color-primary: var(--palette-crystal-white);
+  --text-color-secondary: var(--palette-orchid-glow);
+  --text-color-muted: var(--palette-amethyst-smoke);
+  --text-color-disabled: var(--palette-shadow-grey);
+
+  --border-color-default: var(--palette-blackberry-cream);
+  --border-color-muted: var(--palette-shadow-grey);
+
+  --color-cta-bg: var(--palette-orchid-mist);
+  --color-cta-bg-hover: var(--palette-dark-amethyst);
+  --color-cta-text: var(--palette-coffee-bean);
+  --color-cta-text-hover: var(--palette-crystal-white);
+}
+
+@layer base {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    background: var(--color-surface-main);
+    color: var(--text-color-secondary);
+  }
 }
