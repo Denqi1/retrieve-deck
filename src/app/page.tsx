@@ -1,5 +1,6 @@
 import { Button } from '@/shared/ui/button';
 import { Card } from '@/shared/ui/card';
+import { Chip } from '@/shared/ui/chip';
 import { SectionTitle } from '@/shared/ui/section-title';
 
 export default function Page() {
@@ -24,30 +25,38 @@ export default function Page() {
           </div>
         </div>
 
-        <ul className="grid grid-cols-4">
-          <li className="flex items-center gap-2 cursor-pointer">
-            <input type="checkbox" />
-            <p>JS</p>
+        <ul className="grid grid-cols-4 gap-4">
+          <li>
+            <Chip text="JS" isChecked />
           </li>
-          <li className="flex items-center gap-2 cursor-pointer">
-            <input type="checkbox" />
-            <p>React</p>
+          <li>
+            <Chip text="React" isChecked={false} />
           </li>
-          <li className="flex items-center gap-2 cursor-pointer">
-            <input type="checkbox" />
-            <p>TS</p>
+          <li>
+            <Chip text="TS" isChecked={false} />
           </li>
         </ul>
       </div>
 
       <div className="flex flex-col gap-3">
-        <div className="flex justify-between items-center">
-          <p className="text-xs text-green-400">02 · level</p>
-        </div>
+        <SectionTitle number={2} title="level" />
 
         <div className="flex gap-2">
-          <Card description="Базовые понятия" title="junior" />
-          <Card description="Объяснение почему" title="middle" />
+          <Card
+            description="Базовые понятия, определения, «что это и зачем»"
+            title="junior"
+            className="max-w-40"
+          />
+          <Card
+            description="Как работает под капотом, типичные кейсы и ошибки"
+            title="middle"
+            className="max-w-40"
+          />
+          <Card
+            description="Trade-offs, архитектура, edge cases, «почему так»"
+            title="senior"
+            className="max-w-40"
+          />
         </div>
       </div>
 
