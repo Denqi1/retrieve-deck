@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+
 // import { PathTracker } from '@/old/features/path-tracker';
 import { inter } from '@/old/ui/fonts/fonts';
+
 import './main.css';
 
 export const metadata: Metadata = {

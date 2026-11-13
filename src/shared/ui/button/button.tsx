@@ -1,9 +1,11 @@
 'use client';
 
-import { ButtonProps } from './button.types';
-import { LoaderSvg } from '../loader-svg';
 import { cva } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
+
+import { LoaderSvg } from '../loader-svg';
+
+import { ButtonProps } from './button.types';
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center font-medium rounded-lg cursor-pointer transition-colors disabled:50',

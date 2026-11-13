@@ -1,6 +1,6 @@
 import { Button } from '@/shared/ui/button';
-import { SectionTitle } from '@/shared/ui/section-title';
 import { Card } from '@/shared/ui/card';
+import { SectionTitle } from '@/shared/ui/section-title';
 
 export default function Page() {
   return (
