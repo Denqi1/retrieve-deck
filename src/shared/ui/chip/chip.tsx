@@ -12,7 +12,7 @@ export const Chip = (props: ChipProps) => {
   return (
     <div
       onClick={handleChange}
-      className={`bg-surface-panel text-muted border-default flex gap-2 p-2 rounded-xl w-full cursor-pointer transition-colors hover:bg-cta-bg-hover ${className}`}
+      className={`${isChecked ? 'bg-surface-element text-secondary' : 'bg-surface-panel text-muted'} hover:bg-cta-bg-hover border border-default flex gap-2 p-2 rounded-xl w-full cursor-pointer transition-colors  ${className}`}
     >
       <label className="cursor-pointer">
         <input

@@ -27,7 +27,7 @@ export default function Page() {
 
         <ul className="grid grid-cols-4 gap-4">
           <li>
-            <Chip text="JS" isChecked />
+            <Chip text="JS" isChecked={true} />
           </li>
           <li>
             <Chip text="React" isChecked={false} />
