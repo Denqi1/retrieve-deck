@@ -12,7 +12,7 @@ export const Card = (props: CardProps) => {
   return (
     <div
       onClick={handleClick}
-      className={`flex flex-col gap-4 bg-surface-card p-4 rounded-xl cursor-pointer transition-colors border border-default hover:bg-cta-bg-hover ${className}`}
+      className={`flex flex-col gap-4 p-4 rounded-xl cursor-pointer transition-colors border border-default hover:bg-cta-bg-hover ${className}`}
     >
       <div className="flex justify-between">
         <p className="text-sm text-primary">{title}</p>

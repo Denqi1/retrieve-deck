@@ -10,19 +10,16 @@ export const Chip = (props: ChipProps) => {
   };
 
   return (
-    <div
-      onClick={handleChange}
+    <label
       className={`${isChecked ? 'bg-surface-element text-secondary' : 'bg-surface-panel text-muted'} hover:bg-cta-bg-hover border border-default flex gap-2 p-2 rounded-xl w-full cursor-pointer transition-colors  ${className}`}
     >
-      <label className="cursor-pointer">
-        <input
-          onChange={handleChange}
-          className="cursor-pointer accent-surface-element mr-2"
-          type="checkbox"
-          checked={isChecked}
-        />
-        <span>{text}</span>
-      </label>
-    </div>
+      <input
+        onChange={handleChange}
+        className="cursor-pointer accent-surface-element mr-2"
+        type="checkbox"
+        checked={isChecked}
+      />
+      <span>{text}</span>
+    </label>
   );
 };
